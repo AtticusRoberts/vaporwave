@@ -99,9 +99,9 @@ void draw() {
 }
 
 class star {
-  float x,y,clr,clrInc,starSize;
+  float x,y,clr,clrInc,starSize,flux;
   star() { //Generates the x and y of the stars as random numbers with the parammeter that they can't be too close to the sun image
-
+    flux=random(0.3,0.5);
     toggle=true;
     while (toggle==true) {
       x=random(200,w);
@@ -122,6 +122,6 @@ class star {
     starSize=random(bass*3,bass*3+(bass*3)*0.5); //Also the star size is based of of the bass, rather then the same level as the terrain,
     //because it looks more interesting. 
     
-    ellipse(x,y,starSize,starSize);
+    ellipse(x,y,starSize*flux,starSize*flux); //Makes the star sizes fluxuate, which is more visualy interesting
   }
 }
